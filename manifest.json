@@ -1,0 +1,15 @@
+{
+  "name": "VTC SHOP - Satu App Semua Bisa",
+  "short_name": "VTC SHOP",
+  "start_url": "/vtc-mega-store/",
+  "display": "standalone",
+  "background_color": "#FF6A00",
+  "theme_color": "#FF6A00",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
