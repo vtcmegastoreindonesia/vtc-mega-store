@@ -1,97 +1,105 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VTC MEGA SHOP</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f5;padding-bottom:80px}
-.top{background:#ff3d00;color:white;padding:18px 12px;text-align:center}
-.top h1{font-size:32px}
-.live{display:flex;gap:10px;overflow-x:auto;padding:12px;background:#111}
-.live-card{min-width:180px;background:#222;color:white;border-radius:12px;padding:12px;text-align:center}
-.live-card button{background:#ff0000;color:white;border:none;padding:8px 15px;border-radius:20px;font-weight:bold;margin-top:8px;width:100%}
-.search{display:flex;gap:8px;padding:12px;background:white}
-.search input{flex:1;padding:13px;border:2px solid #ff3d00;border-radius:10px;font-size:15px}
-.search button{background:#ff3d00;color:white;border:none;padding:0 20px;border-radius:10px;font-weight:bold}
-.cats{display:flex;gap:8px;overflow-x:auto;padding:10px;background:white;white-space:nowrap}
-.cats button{padding:9px 18px;border-radius:20px;border:1px solid #ff8a65;background:white;color:#e64a19}
-.cats button.aktif{background:#ff3d00;color:white}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.produk{background:white;border-radius:12px;overflow:hidden;padding-bottom:10px}
-.produk img{width:100%;height:140px;object-fit:cover}
-.produk h3{font-size:15px;padding:8px}
-.produk p{color:#ff3d00;font-weight:bold;padding:0 8px}
-.produk button{background:#ff3d00;color:white;border:none;width:calc(100% - 16px);margin:8px;padding:10px;border-radius:8px;font-weight:bold}
-.cod{background:#FFF7ED;border:2px dashed #FF3D00;border-radius:12px;padding:15px;margin:12px;font-size:14px;line-height:1.6;text-align:left}
-.cod h3{font-size:16px;margin-bottom:8px}
-.cart{position:fixed;bottom:0;left:0;right:0;background:#111;color:white;display:flex;justify-content:space-between;align-items:center;padding:12px 15px}
-.cart button{background:#00c853;color:white;border:none;padding:12px 18px;border-radius:8px;font-weight:bold}
-</style>
-</head>
-<body>
-<div class="top"><h1>🛒 VTC MEGA SHOP</h1><p>SEMUA KATEGORI LENGKAP! • Semua Order Via 1 Admin - Aman • COD</p></div>
-<div class="live">
-<div class="live-card">🔴 LIVE<br><b>Seller Pupuk</b><br>Jam 08.00<br><button onclick="wa('Mau nonton Live Seller Pupuk')">NONTON LIVE</button></div>
-<div class="live-card">🔴 LIVE<br><b>Seller Bibit</b><br>Jam 10.00<br><button onclick="wa('Mau nonton Live Seller Bibit')">NONTON LIVE</button></div>
-<div class="live-card">🎬 LIVE<br><b>Drama</b><br>Jam 12.00<br><button onclick="wa('Mau nonton Drama')">NONTON</button></div>
-</div>
-<div class="search"><input id="cari" onkeyup="filterCari()" placeholder="Cari SEMUA: pupuk, bibit, ban, semen, kurma..."><button onclick="filterCari()">CARI</button></div>
-<div class="cats">
-<button class="aktif" onclick="filterKat('all',this)">Semua</button>
-<button onclick="filterKat('fashion',this)">Fashion</button>
-<button onclick="filterKat('kecantikan',this)">Kecantikan</button>
-<button onclick="filterKat('bayi',this)">Ibu, Bayi & Anak</button>
-<button onclick="filterKat('rumah',this)">Rumah Tangga</button>
-<button onclick="filterKat('teknologi',this)">Teknologi</button>
-<button onclick="filterKat('otomotif',this)">Otomotif</button>
-</div>
-<div class="grid">
-<div class="produk" data-kat="fashion"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"><h3>Kaos Polos Premium - Putih</h3><p>Rp 45.000</p><button onclick="tambah('Kaos Polos Premium',45000)">+ KERANJANG</button></div>
-<div class="produk" data-kat="rumah"><img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400"><h3>Bibit Tanaman - Pohon Mangga</h3><p>Rp 25.000</p><button onclick="tambah('Bibit Mangga',25000)">+ KERANJANG</button></div>
-<div class="produk" data-kat="rumah"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400"><h3>Pupuk Organik 5kg</h3><p>Rp 35.000</p><button onclick="tambah('Pupuk Organik 5kg',35000)">+ KERANJANG</button></div>
-<div class="produk" data-kat="otomotif"><img src="https://images.unsplash.com/photo-1578844251758-2f71da6b7a04?w=400"><h3>Ban Motor Tubeless</h3><p>Rp 180.000</p><button onclick="tambah('Ban Motor',180000)">+ KERANJANG</button></div>
-<div class="produk" data-kat="rumah"><img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400"><h3>Bumbu Rendang 500gr</h3><p>Rp 50.000</p><button onclick="tambah('Bumbu Rendang',50000)">+ KERANJANG</button></div>
-<div class="produk" data-kat="teknologi"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400"><h3>Handphone Android 4GB</h3><p>Rp 1.250.000</p><button onclick="tambah('Handphone Android',1250000)">+ KERANJANG</button></div>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VTC SHOP INDONESIA - Marketplace</title><script src="https://cdn.tailwindcss.com"></script><style>body{background:#f5f5f5;font-family:Arial}.top{background:#ee4d2d;color:#fff;font-size:11px;padding:6px 12px;display:flex;justify-content:space-between}.head{background:#ee4d2d;color:#fff;padding:10px 12px;position:sticky;top:0;z-index:30}.head input{width:100%;padding:10px;border:none;border-radius:4px;color:#333;margin-top:8px}.card{background:#fff;border-radius:10px;padding:12px}.btn{background:#ee4d2d;color:#fff;font-weight:bold;padding:11px;border-radius:8px;width:100%;border:none}input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;margin-bottom:8px;color:#333}.tab{padding:6px 12px;border-radius:20px;background:#eee;font-size:12px;cursor:pointer}.tab.active{background:#ee4d2d;color:#fff}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #eee;max-width:448px;margin:auto}</style></head>
+<body class="max-w-md mx-auto pb-24">
+<div class="top"><span>Download | Jual di VTC | Bantuan | Jual Beli COD</span><span>Indonesia</span></div>
+<div class="head"><div class="flex justify-between"><b class="text-2xl font-black">VTC<span class="text-yellow-300">SHOP</span> <span class="text-xs font-normal">INDONESIA</span></b><span onclick="goCart()" class="cursor-pointer">🛒<b id="cartCount" class="text-xs bg-yellow-400 text-black px-1 rounded-full">0</b></span></div><input id="search" oninput="render()" placeholder="Cari dari ratusan juta seller..."><div class="flex gap-2 mt-2 text-[11px] overflow-x-auto whitespace-nowrap"><span>Free Fire</span><span>MLBB</span><span>UniPin</span><span>Fashion</span><span>Elektronik</span></div></div>
+
+<!-- LOGIN - OTP KAYA SHOPEE / TOKPED -->
+<div id="loginBox" class="m-3 card"><h2 class="font-bold text-center">Login / Daftar - Pembeli & Seller</h2><p class="text-xs text-center text-gray-500">1 No HP = 1 Akun • COD wajib verifikasi No HP (Kaya Tokopedia)</p>
+<button class="w-full border rounded-full py-2 font-bold" onclick="loginGoogle()">G Login Google</button>
+<button class="w-full border rounded-full py-2 font-bold mt-1" onclick="loginBio()">👤 Face ID / 👆 Fingerprint</button>
+<input id="phone" placeholder="+62 8xx xxxx xxxx (Isi No kamu sendiri)"><div id="recaptcha"></div><button class="btn" onclick="kirimOTP()">Kirim OTP SMS</button><button class="btn !bg-green-500 mt-1" onclick="kirimWA()">Kirim OTP via WA</button>
+<input id="otp" placeholder="OTP 6 digit"><button class="btn !bg-yellow-400 !text-black" onclick="verifOTP()">Verifikasi & Masuk</button>
+<input id="email" placeholder="Email"><input id="pass" type="password" placeholder="Password"><button class="btn !bg-cyan-500" onclick="loginEmail()">Login / Daftar Email</button><p id="status" class="text-xs text-orange-600 text-center"></p><p class="text-[11px] text-gray-400 text-center mt-1">Dengan login, kamu setuju Syarat & Ketentuan VTC SHOP: VTC hanya penampung, transaksi antara Seller & Pembeli. PP No.80/2019, UU Perlindungan Konsumen.</p></div>
+
+<div id="main" style="display:none">
+<div class="m-3 card flex justify-between"><span id="userInfo"></span><button onclick="logout()" class="text-red-500 text-xs">Logout</button></div>
+
+<!-- INFO PENAMPUNG -->
+<div class="m-3 card" style="background:#fff3ee"><b>VTC = PENAMPUNG, BUKAN PENJUAL</b><p class="text-xs">VTC hanya sediain tempat kaya Shopee / Tokopedia / Bukalapak. Seller jualan sendiri, Pembeli beli dari seller. VTC dapet komisi 3% per transaksi sukses.<br>Seller: <b id="jmlSeller">0</b> • Produk: <b id="jmlProduk">0</b> • Transaksi: <b id="jmlTrans">0</b></p></div>
+
+<div class="m-3 card"><div class="flex gap-2 overflow-x-auto"><span class="tab active" onclick="setTab('belanja',this)">🛒 Belanja</span><span class="tab" onclick="setTab('toko',this)">🏪 Semua Toko</span><span class="tab" onclick="setTab('jual',this)">📦 Jual / Toko Saya</span><span class="tab" onclick="setTab('pesanan',this)">📦 Pesanan & Resi</span><span class="tab" onclick="setTab('cod',this)">💵 COD</span><span class="tab" onclick="setTab('retur',this)">↩️ Retur</span></div></div>
+
+<div id="pageBelanja"><div class="m-3 card"><b class="text-orange-600">⚡ Flash Sale</b><p class="text-xs">Diskon s.d 80% • Berakhir <b id="timer">02:14:25</b> • Makanan & Flash Sale TIDAK bisa COD (Kaya Tokopedia)</p></div><div id="grid" class="m-3 grid grid-cols-2 gap-3"></div></div>
+<div id="pageToko" style="display:none" class="m-3"><h3 class="font-bold">🏪 Semua Toko Seller</h3><div id="tokoList"></div></div>
+
+<!-- JUAL - SELLER CENTRE KAYA SHOPEE / TOKPED -->
+<div id="pageJual" style="display:none" class="m-3">
+<div class="card"><h3 class="font-bold">🏪 Buka Toko - Seller Centre</h3><p class="text-xs">Cara Shopee: Isi Info Toko > Pilih Jasa Kirim > Submit > Tambah Produk. Syarat COD JNE: KTP, NPWP, Buku Rekening, Kartu JLC, Form CS3.</p>
+<input id="namaToko" placeholder="Nama Toko"><input id="waSeller" placeholder="WA Seller (Pembeli chat ke sini)"><input id="kotaToko" placeholder="Kota / Alamat Toko"><input id="ktpSeller" placeholder="No KTP Seller (Wajib COD)"><input id="rekSeller" placeholder="No Rekening / DANA / OVO / GoPay untuk Cair Dana"><select id="katToko"><option>Top Up Game</option><option>Fashion</option><option>Elektronik</option><option>Makanan (Tidak bisa COD)</option><option>Lainnya</option></select>
+<label class="text-xs"><input type="checkbox" id="codAktif" checked style="width:auto"> Aktifkan COD di Toko Saya (Per Toko, Kaya Shopee - Seller bisa matiin per produk)</label><br>
+<label class="text-xs"><input type="checkbox" id="setujuSyarat" style="width:auto"> Saya setuju Syarat Seller: Barang asli, kirim tepat waktu, terima retur jika salah, COD gagal 2x = COD dikunci</label>
+<button class="btn !bg-green-600" onclick="bukaToko()">BUKA TOKO GRATIS</button><p id="tokoStatus" class="text-xs mt-1"></p></div>
+<div class="card mt-3"><h3 class="font-bold">📦 Upload Produk - Toko Saya</h3><p class="text-xs" id="myTokoInfo">Belum punya toko.</p><input id="pNama" placeholder="Nama Produk"><input id="pHarga" type="number" placeholder="Harga Jual"><input id="pStok" type="number" placeholder="Stok"><select id="pKat"><option>Top Up Game</option><option>Fashion</option><option>Elektronik</option><option>Makanan</option></select><label class="text-xs"><input type="checkbox" id="pCod" checked style="width:auto"> Produk ini bisa COD</label><textarea id="pDesc" placeholder="Deskripsi: Asli / Garansi / dll"></textarea><button class="btn" onclick="upload()">Upload Produk</button><div id="myProduk"></div><p class="text-xs mt-1">Komisi VTC 3% • Contoh jual Rp 100.000, seller terima Rp 97.000, VTC Rp 3.000 • Dana cair setelah pembeli klik Pesanan Diterima / Garansi habis.</p></div>
+<div class="card mt-3"><h3 class="font-bold">💰 Saldo Seller</h3><p>Saldo: <b id="saldoSeller">Rp 0</b> • Komisi VTC: <b id="komisiVTC">Rp 0</b></p><select id="tarikKe"><option>BCA</option><option>BRI</option><option>DANA</option><option>OVO</option><option>GoPay</option></select><button class="btn !bg-blue-500" onclick="tarikSaldo()">Tarik Saldo</button></div>
 </div>
 
-<!-- ATURAN COD - PERSIS SCREENSHOT LO -->
-<div class="cod">
-<h3>📦 ATURAN COD - WAJIB BACA SEBELUM CHECKOUT</h3>
-<b>1. COD KETEMU LANGSUNG (Cikupa / Bekasi)</b><br>
-✅ GRATIS - Tanpa syarat<br>
-✅ Bayar di tempat, barang cek dulu baru bayar<br>
-✅ Bisa nego di WA<br><br>
-<b>2. COD VIA J&T & JNE (LEWAT KURIR)</b><br>
-✅ Bisa! Tapi ada syarat:<br>
-- Min. order <b>Rp 25.000</b>, Max. <b>Rp 500.000</b> / paket<br>
-- Ongkir <b>WAJIB</b> bayar di depan (Transfer / QRIS) - Harga barangnya aja yang bayar ke kurir<br>
-- Wajib bayar <b>TUNAI & PENUH</b> ke kurir, gak boleh buka paket sebelum bayar<br>
-- Kalo paket <b>DITOLAK / GAK ADA ORANG</b> = Ongkir <b>HANGUS</b>, gak bisa refund<br>
-- Fee COD JNE 3% / J&T 4% ditanggung pembeli<br><br>
-<div style="background:white;padding:10px;border-radius:8px;">
-<b>Contoh:</b> Beli Bumbu Rendang Rp 50.000, Ongkir Rp 12.000<br>
-→ Bayar sekarang: Rp 12.000 (ongkir)<br>
-→ Bayar ke kurir nanti: Rp 50.000 + Fee COD Rp 3.500 = <b>Rp 53.500</b>
-</div><br>
-<label style="display:flex;gap:8px;align-items:flex-start;">
-<input type="checkbox" id="setujuCOD" style="width:20px;height:20px;margin-top:2px;">
-<span>Saya sudah baca & <b>SETUJU</b> dengan aturan COD di atas. Saya paham kalo nolak paket, ongkir hangus.</span>
-</label>
+<div id="pagePesanan" style="display:none" class="m-3 card"><h3 class="font-bold">📦 Pesanan & Lacak Resi</h3><p class="text-xs">Status: Belum Bayar | Perlu Dikirim | Dikirim | Selesai | Pembatalan | Pengembalian (Kaya Seller Centre Shopee)</p><input id="resiIn" placeholder="Masukkan Resi: VTC-xxxx / J&T / JNE / SiCepat"><button class="btn !bg-blue-500" onclick="cekResi()">Cek Resi</button><p id="resiOut" class="text-xs"></p><div id="orderList"></div></div>
+
+<div id="pageCod" style="display:none" class="m-3 card"><h3 class="font-bold">💵 COD - Bayar di Tempat - Aturan Resmi</h3><p class="text-xs">• Bayar ke kurir saat barang sampai, SEBELUM buka paket. Kecuali COD Cek Dulu: boleh buka di depan kurir + direkam, kalo gak sesuai kembalikan ke kurir.<br>• Shopee: Rp 50rb - Rp 3jt, biaya handling 2% (biasa) / 8% (dropshipper), 3x pertama gratis, ke-4 dst 4%.<br>• Tokopedia: Maks Rp 2,5jt, maks 5x/minggu, 2x/hari, gagal 2x dalam 60 hari = COD dibanned 60 hari.<br>• Bukalapak: Maks Rp 4jt, Super Seller, feedback 50+, wajib cetak label.<br>• Gagal kirim / ditolak: Ongkir retur ditanggung platform, bukan seller/pembeli.<br>• Kurir COD: J&T, JNE, SiCepat, AnterAja, Ninja, Shopee Express, ID Express.</p><p class="text-xs mt-1">COD Saya: <b id="codStatus">Aktif - 0x Gagal</b> • <span class="text-red-500">Gagal 2x = COD dikunci 60 hari</span></p></div>
+
+<div id="pageRetur" style="display:none" class="m-3 card"><h3 class="font-bold">↩️ Retur & Refund - Aturan Shopee</h3><p class="text-xs">• Shopee Mall: 15 hari, Toko biasa: 3x24 jam cek barang, belum klik Pesanan Diterima.<br>• Wajib: Foto + Video Unboxing, Chat seller dulu, seller setuju, kirim balik pake kurir yang sama, Drop Off gratis.<br>• Ditolak: Berubah pikiran / gak suka, tanpa bukti, barang sudah dipakai.<br>• Seller punya 7 hari konfirmasi kondisi barang retur.</p><select id="returAlasan"><option>Produk Rusak / Tidak Berfungsi</option><option>Tidak Sesuai Deskripsi / Foto</option><option>Salah Ukuran / Variasi</option><option>Barang Berbeda</option><option>Barang Hilang / Rusak di Jalan</option></select><input id="returResi" placeholder="No Pesanan / Resi"><textarea id="returBukti" placeholder="Bukti: Link Foto / Video Unboxing"></textarea><button class="btn" onclick="ajukanRetur()">Ajukan Retur</button><p id="returOut" class="text-xs"></p></div>
+
+<!-- CHECKOUT KAYA SHOPEE -->
+<div class="m-3 card"><h3 class="font-bold">Checkout - Kaya Shopee</h3><p class="text-xs">Alur: Keranjang > Checkout > Opsi Pengiriman > Metode Pembayaran > Buat Pesanan</p>
+<select id="kurir"><option>J&T Express - COD ✅ - Resi Otomatis</option><option>JNE Reguler - COD ✅ - Resi Otomatis</option><option>JNE YES - COD ✅</option><option>SiCepat REG - COD ✅</option><option>SiCepat HALU - COD ✅</option><option>Ninja Xpress - COD ✅</option><option>AnterAja - COD ✅</option><option>ID Express - COD ✅</option><option>Shopee Express Standard - COD ✅</option><option>Instant Digital - 1 Menit (Top Up Game - Tanpa Kurir)</option></select>
+<select id="bayar"><option>QRIS</option><option>DANA</option><option>OVO</option><option>GoPay</option><option>Transfer Bank - VA BCA / Mandiri / BRI</option><option>SPayLater 0%</option><option>Alfamart / Indomaret</option><option>COD - Bayar di Tempat</option><option>COD - Cek Dulu (Buka di depan kurir)</option></select>
+<input id="nama" placeholder="Nama Pembeli"><input id="hpPembeli" placeholder="No HP Pembeli - Wajib verifikasi untuk COD"><input id="alamat" placeholder="Alamat Lengkap + Kota + Kode Pos"><p>Total: <b id="totalTxt">Rp 0</b> | Keranjang: <span id="cartN">0</span> | Biaya COD: <b id="biayaCodTxt">Rp 0</b></p><button class="btn !bg-green-500" onclick="checkout()">Buat Pesanan</button><p id="orderInfo" class="text-xs mt-1"></p></div>
 </div>
 
-<div class="cart"><b>🛒 <span id="jml">0</span> • Rp <span id="total">0</span></b><button id="btnCheckout" onclick="checkout()">LIHAT KERANJANG</button></div>
-<script>
-let keranjang=[]; let total=0;
-function wa(pesan){ window.open('https://wa.me/6281234567890?text='+encodeURIComponent(pesan)); }
-function tambah(nama,harga){ keranjang.push(nama); total+=harga; document.getElementById('jml').innerText=keranjang.length; document.getElementById('total').innerText=total.toLocaleString('id-ID'); alert(nama+' ditambah!'); }
-function checkout(){ if(keranjang.length==0){alert('Keranjang masih kosong!');return;} wa('Halo VTC MEGA SHOP, saya mau order:\n- '+keranjang.join('\n- ')+'\nTotal: Rp '+total.toLocaleString('id-ID')); }
-function filterCari(){ let k=document.getElementById('cari').value.toLowerCase(); document.querySelectorAll('.produk').forEach(p=>{ p.style.display=p.innerText.toLowerCase().includes(k)?'':'none'; }); }
-function filterKat(kat,btn){ document.querySelectorAll('.cats button').forEach(b=>b.classList.remove('aktif')); btn.classList.add('aktif'); document.querySelectorAll('.produk').forEach(p=>{ p.style.display=(kat=='all'||p.dataset.kat==kat)?'':'none'; }); }
-const checkbox=document.getElementById('setujuCOD'); const tombolCheckout=document.getElementById('btnCheckout');
-tombolCheckout.style.opacity='0.5'; tombolCheckout.style.pointerEvents='none';
-checkbox.addEventListener('change',function(){ if(this.checked){tombolCheckout.style.opacity='1';tombolCheckout.style.pointerEvents='auto';} else {tombolCheckout.style.opacity='0.5';tombolCheckout.style.pointerEvents='none';} });
-</script>
-</body>
-</html>
+<!-- SUPER ADMIN - PEMILIK VTC -->
+<div id="adminLogin" style="display:none" class="m-3 card"><h2 class="font-bold text-center">Super Admin - Pemilik VTC</h2><p class="text-xs text-center">Lu cuma penampung. Lihat semua seller & komisi di sini.</p><input id="adminPass" type="password" placeholder="Password (vtcadmin123)"><button class="btn !bg-black" onclick="loginAdmin()">Masuk</button><p id="adminStatus" class="text-xs text-red-500"></p></div>
+<div id="adminDash" style="display:none" class="m-3"><div class="card"><h3 class="font-bold">📊 Dashboard Pemilik Platform</h3><div class="grid grid-cols-3 gap-2 mt-2 text-center"><div class="bg-orange-100 rounded p-2"><b id="statSeller">0</b><br><span class="text-xs">Seller</span></div><div class="bg-green-100 rounded p-2"><b id="statOmzet">Rp 0</b><br><span class="text-xs">Transaksi</span></div><div class="bg-blue-100 rounded p-2"><b id="statKomisi">Rp 0</b><br><span class="text-xs">Komisi Lu 3%</span></div></div><button class="btn !bg-gray-700 mt-2" onclick="logoutAdmin()">Keluar</button></div><div class="card mt-3"><h3 class="font-bold">🏪 Semua Seller</h3><div id="adminSellerList"></div></div><div class="card mt-3"><h3 class="font-bold">📦 Semua Transaksi + Resi</h3><div id="adminOrderList"></div></div></div>
+
+<div class="m-3 card text-center"><p class="text-xs text-gray-500">VTC SHOP INDONESIA - Marketplace - Hanya Penampung<br>Ikuti PP No.80/2019 & UU Perlindungan Konsumen</p><a href="https://wa.me/6283878502333?text=Halo%20VTC" target="_blank" class="text-green-600 font-bold text-sm">Hubungi Admin VTC</a></div>
+
+<div id="detail" style="display:none" class="fixed inset-0 bg-black/50 z-50 flex items-end"><div class="bg-white w-full rounded-t-2xl p-4 max-w-md mx-auto"><h3 id="dNama" class="font-bold"></h3><p id="dToko" class="text-xs text-orange-600"></p><p id="dHarga" class="text-orange-600 font-black"></p><p id="dDesc" class="text-sm"></p><input id="dId" placeholder="Catatan / ID Game"><div class="flex gap-2"><button class="btn !bg-yellow-400 !text-black flex-1" onclick="addCart()">+ Keranjang</button><button class="btn flex-1" onclick="beliNow()">Beli Sekarang</button></div><button onclick="tutupDetail()" class="w-full text-xs mt-2">Tutup</button></div></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"; import {getAuth,RecaptchaVerifier,signInWithPhoneNumber,signInWithPopup,GoogleAuthProvider,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const WA_ADMIN="6283878502333";
+const firebaseConfig={apiKey:"GANTI_APIKEY_LU",authDomain:"vtc-mega-shop-resmi.firebaseapp.com",projectId:"vtc-mega-shop-resmi",storageBucket:"vtc-mega-shop-resmi.appspot.com",messagingSenderId:"GANTI_SENDERID",appId:"GANTI_APPID"};
+const app=initializeApp(firebaseConfig); const auth=getAuth(app); let conf=null, cart=[], pilih=null, myToko=null, gagalCOD=0;
+let sellers=JSON.parse(localStorage.getItem('vtc_s')||'[]'); let produk=JSON.parse(localStorage.getItem('vtc_p')||'null')||[{id:1,nama:"Free Fire 100 Diamond",harga:10000,asli:15000,toko:"Budi Game Store",wa:"6281234567890",kat:"Top Up Game",cod:true,desc:"Seller Budi - Bekasi - Resi Otomatis J&T"},{id:2,nama:"MLBB 86 Diamond",harga:19800,asli:28000,toko:"Siti Top Up",wa:"628987654321",kat:"Top Up Game",cod:true,desc:"Seller Siti - Jakarta"},{id:3,nama:"Kaos Distro",harga:75000,asli:110000,toko:"Fashion Jaya",wa:"628555666777",kat:"Fashion",cod:true,desc:"Seller Fashion Jaya - Bandung - COD ✅"},{id:4,nama:"UniPin 50K",harga:50000,asli:55000,toko:"Andi Voucher",wa:"628111222333",kat:"Top Up Game",cod:false,desc:"Digital - Instant 1 Menit - Tanpa Kurir"}];
+if(sellers.length===0){sellers=[{nama:"Budi Game Store",wa:"6281234567890",kota:"Bekasi",cod:true},{nama:"Siti Top Up",wa:"628987654321",kota:"Jakarta",cod:true},{nama:"Andi Voucher",wa:"628111222333",kota:"Surabaya",cod:false}];}
+let orders=JSON.parse(localStorage.getItem('vtc_o')||'[]'); try{myToko=JSON.parse(localStorage.getItem('vtc_my')||'null');}catch(e){}
+const fmt=n=>"Rp "+n.toLocaleString('id-ID'); function save(){localStorage.setItem('vtc_s',JSON.stringify(sellers)); localStorage.setItem('vtc_p',JSON.stringify(produk)); localStorage.setItem('vtc_o',JSON.stringify(orders)); if(myToko) localStorage.setItem('vtc_my',JSON.stringify(myToko));}
+window.setTab=(p,el)=>{document.querySelectorAll('#main .tab').forEach(t=>t.classList.remove('active')); if(el)el.classList.add('active'); ['pageBelanja','pageToko','pageJual','pagePesanan','pageCod','pageRetur'].forEach(id=>document.getElementById(id).style.display='none'); document.getElementById('page'+p.charAt(0).toUpperCase()+p.slice(1)).style.display='block'; if(p==='toko') renderToko(); if(p==='jual') renderMy();};
+window.render=()=>{const q=document.getElementById('search').value.toLowerCase(); const g=document.getElementById('grid'); g.innerHTML=""; produk.filter(p=>p.nama.toLowerCase().includes(q)||p.toko.toLowerCase().includes(q)).forEach(p=>{g.innerHTML+=`<div class="card"><span class="badge bg-orange-500 text-white text-[10px] px-1 rounded">FLASH SALE</span><h4 class="font-bold text-sm">${p.nama}</h4><p class="text-[11px] text-orange-600">🏪 ${p.toko} ${p.cod?'• COD ✅':'• Tanpa COD'}</p><p class="text-orange-600 font-black">${fmt(p.harga)}</p><p class="text-xs text-gray-400 line-through">${fmt(p.asli)}</p><button class="btn mt-1" onclick="lihat(${p.id})">Lihat</button></div>`}); document.getElementById('jmlSeller').innerText=sellers.length; document.getElementById('jmlProduk').innerText=produk.length; document.getElementById('jmlTrans').innerText=orders.length;};
+function renderToko(){const l=document.getElementById('tokoList'); l.innerHTML=""; sellers.forEach(s=>{l.innerHTML+=`<div class="card mb-2"><b>🏪 ${s.nama}</b><p class="text-xs">${s.kota} • COD: ${s.cod?'Aktif ✅':'Nonaktif'} • WA: ${s.wa}</p><button class="btn !bg-green-500 !p-2 text-xs" onclick="chatSeller('${s.wa}','${s.nama}')">💬 Chat Seller Ini</button></div>`});}
+function renderMy(){if(myToko) document.getElementById('myTokoInfo').innerText="Toko Kamu: "+myToko.nama+" - COD: "+(myToko.cod?'Aktif':'Nonaktif'); const l=document.getElementById('myProduk'); l.innerHTML=""; let saldo=0; produk.filter(p=>myToko&&p.toko===myToko.nama).forEach(p=>{l.innerHTML+=`<div class="text-xs border p-1 rounded mt-1">${p.nama} - ${fmt(p.harga)} - COD: ${p.cod?'✅':'❌'}</div>`}); orders.forEach(o=>{o.items.filter(i=>myToko&&i.toko===myToko.nama).forEach(i=>{saldo+=i.harga*0.97;});}); document.getElementById('saldoSeller').innerText=fmt(Math.floor(saldo)); document.getElementById('komisiVTC').innerText=fmt(Math.floor(saldo*0.03/0.97));}
+window.bukaToko=()=>{const n=document.getElementById('namaToko').value, wa=document.getElementById('waSeller').value; if(!n||!wa){document.getElementById('tokoStatus').innerText="Isi Nama Toko & WA Seller!";return;} if(!document.getElementById('setujuSyarat').checked){document.getElementById('tokoStatus').innerText="Centang Setuju Syarat Seller dulu!";return;} myToko={nama:n,wa:wa,kota:document.getElementById('kotaToko').value,ktp:document.getElementById('ktpSeller').value,rek:document.getElementById('rekSeller').value,cod:document.getElementById('codAktif').checked}; sellers.push(myToko); save(); render(); renderMy(); document.getElementById('tokoStatus').innerText="Toko "+n+" berhasil dibuka! Sekarang upload produk!";};
+window.upload=()=>{if(!myToko){document.getElementById('tokoStatus').innerText="Buka toko dulu!";return;} const n=document.getElementById('pNama').value,h=parseInt(document.getElementById('pHarga').value); if(!n||!h) return; // Makanan & Flash Sale tidak bisa COD - aturan Tokopedia
+let bisaCOD=document.getElementById('pCod').checked; if(document.getElementById('pKat').value==='Makanan') bisaCOD=false; produk.push({id:Date.now(),nama:n,harga:h,asli:h+5000,toko:myToko.nama,wa:myToko.wa,kat:document.getElementById('pKat').value,cod:bisaCOD,desc:document.getElementById('pDesc').value}); save(); render(); renderMy();};
+window.chatSeller=(wa,nama)=>{window.open("https://wa.me/"+wa+"?text="+encodeURIComponent("Halo "+nama+"! Saya mau beli di VTC SHOP"),"_blank");};
+window.lihat=(id)=>{pilih=produk.find(p=>p.id===id); document.getElementById('dNama').innerText=pilih.nama; document.getElementById('dToko').innerText="Toko: "+pilih.toko+" | COD: "+(pilih.cod?"Aktif ✅":"Nonaktif")+" | Yang jualan seller ini"; document.getElementById('dHarga').innerText=fmt(pilih.harga); document.getElementById('dDesc').innerText=pilih.desc; document.getElementById('detail').style.display='flex';};
+window.tutupDetail=()=>document.getElementById('detail').style.display='none';
+window.addCart=()=>{cart.push({...pilih,cat:document.getElementById('dId').value}); upd(); tutupDetail(); document.getElementById('orderInfo').innerText="Masuk keranjang: "+pilih.nama;};
+window.beliNow=()=>{cart=[{...pilih,cat:document.getElementById('dId').value}]; upd(); tutupDetail();};
+function upd(){let t=0; cart.forEach(c=>t+=c.harga); let bayar=document.getElementById('bayar').value; let biayaCOD=bayar.includes('COD')?Math.floor(t*0.02):0; // Aturan Shopee: 2% biasa
+// Validasi COD: Tokopedia maks 2,5jt, Shopee maks 3jt - pakai yang paling ketat 2,5jt untuk keamanan
+if(bayar.includes('COD')&&t>2500000){document.getElementById('orderInfo').innerText="❌ COD Maks Rp 2.500.000 (Aturan Tokopedia). Kurangi keranjang / pakai QRIS / Transfer."; }
+document.getElementById('totalTxt').innerText=fmt(t+biayaCOD); document.getElementById('biayaCodTxt').innerText=fmt(biayaCOD); document.getElementById('cartN').innerText=cart.length; document.getElementById('cartCount').innerText=cart.length;}
+window.goCart=()=>{let txt="Keranjang:\n"; cart.forEach(c=>txt+=`- ${c.nama} (${c.toko}) ${fmt(c.harga)}\n`); if(cart.length===0) txt="Keranjang kosong."; document.getElementById('orderInfo').innerText=txt;};
+window.checkout=()=>{if(cart.length===0){document.getElementById('orderInfo').innerText="Keranjang kosong!";return;} const bayar=document.getElementById('bayar').value, kurir=document.getElementById('kurir').value; let total=0; cart.forEach(c=>total+=c.harga); let biayaCOD=bayar.includes('COD')?Math.floor(total*0.02):0; total+=biayaCOD; if(bayar.includes('COD')){ if(total>2500000){document.getElementById('orderInfo').innerText="❌ COD Maks Rp 2.500.000. Pakai QRIS / Transfer.";return;} if(!document.getElementById('hpPembeli').value){document.getElementById('orderInfo').innerText="❌ COD wajib isi No HP & verifikasi (Aturan Tokopedia).";return;} if(gagalCOD>=2){document.getElementById('orderInfo').innerText="❌ COD kamu dikunci 60 hari karena gagal 2x. Pakai QRIS / Transfer.";return;} // Cek produk COD
+let noCod=cart.find(c=>!c.cod); if(noCod){document.getElementById('orderInfo').innerText="❌ Produk "+noCod.nama+" tidak bisa COD (Seller matiin / Makanan / Digital). Ganti metode bayar.";return;} } let komisi=Math.floor(total*0.03); const resi="VTC-"+Math.floor(1000+Math.random()*9000)+"-"+Date.now().toString().slice(-4); const o={resi,items:[...cart],total,komisi,sellerTerima:total-komisi,biayaCOD,bayar,kurir,status:bayar.includes('COD')?"Belum Bayar - COD":"Perlu Dikirim",tanggal:new Date().toLocaleString('id-ID'),nama:document.getElementById('nama').value,hp:document.getElementById('hpPembeli').value,alamat:document.getElementById('alamat').value,resiKurir:"-"}; orders.push(o); save(); renderOrders(); renderAdmin(); // Kirim ke TIAP SELLER
+let waMap={}; cart.forEach(c=>{if(!waMap[c.wa]) waMap[c.wa]=[]; waMap[c.wa].push(c);}); Object.keys(waMap).forEach(wa=>{let p=`Halo Seller! Order baru VTC SHOP:\nResi: ${resi}\nKurir: ${kurir}\nBayar: ${bayar}\n`; waMap[wa].forEach(c=>p+=`- ${c.nama} ${fmt(c.harga)}\n`); p+=`Pembeli: ${o.nama} HP: ${o.hp} Alamat: ${o.alamat} Total: ${fmt(total)}`; window.open("https://wa.me/"+wa+"?text="+encodeURIComponent(p),"_blank");}); document.getElementById('orderInfo').innerText="✅ Pesanan dibuat! Resi: "+resi+" - WA terkirim ke TIAP SELLER. "+(bayar.includes('COD')?"Bayar ke kurir saat barang sampai, SEBELUM buka paket. Kecuali COD Cek Dulu boleh buka di depan kurir.":""); cart=[]; upd(); setTab('pesanan',null);};
+function renderOrders(){const l=document.getElementById('orderList'); if(!l)return; l.innerHTML=""; if(orders.length===0) l.innerHTML="<p class='text-xs'>Belum ada pesanan.</p>"; orders.slice().reverse().forEach((o,i)=>{l.innerHTML+=`<div class="border p-2 rounded mt-2 text-sm"><b>${o.resi}</b> - ${o.status}<br>${o.items.map(x=>x.nama+" ("+x.toko+")").join(', ')}<br>Total: ${fmt(o.total)} | COD Fee: ${fmt(o.biayaCOD)} | Kurir: ${o.kurir}<br>Resi Kurir: <b>${o.resiKurir}</b> | ${o.tanggal}</div>`});}
+window.cekResi=()=>{const r=document.getElementById('resiIn').value.trim(); const o=orders.find(x=>x.resi===r||x.resiKurir===r); document.getElementById('resiOut').innerText=o?`✅ Resi ${r} | Status: ${o.status} | Kurir: ${o.kurir} | Resi Kurir: ${o.resiKurir} | Estimasi 2-4 hari`:`Resi ${r} tidak ketemu.`;};
+window.ajukanRetur=()=>{document.getElementById('returOut').innerText="✅ Retur diajukan: "+document.getElementById('returAlasan').value+" - Resi: "+document.getElementById('returResi').value+" - Wajib foto/video unboxing. Seller punya 7 hari konfirmasi. Kirim balik pake kurir yang sama, Drop Off gratis.";};
+window.tarikSaldo=()=>{document.getElementById('tokoStatus').innerText="Pengajuan tarik saldo ke "+document.getElementById('tarikKe').value+" dikirim. Cair setelah verifikasi.";};
+window.loginAdmin=()=>{if(document.getElementById('adminPass').value==="vtcadmin123"){document.getElementById('adminLogin').style.display='none'; document.getElementById('adminDash').style.display='block'; renderAdmin();}else document.getElementById('adminStatus').innerText="Password salah!";};
+window.logoutAdmin=()=>{document.getElementById('adminDash').style.display='none';};
+function renderAdmin(){let omzet=0,kom=0; orders.forEach(o=>{omzet+=o.total; kom+=o.komisi;}); document.getElementById('statSeller').innerText=sellers.length; document.getElementById('statOmzet').innerText=fmt(omzet); document.getElementById('statKomisi').innerText=fmt(kom); const sl=document.getElementById('adminSellerList'); if(sl){sl.innerHTML=""; sellers.forEach(s=>{sl.innerHTML+=`<div class="border p-2 rounded mt-1 text-sm">🏪 ${s.nama} - ${s.kota} - WA ${s.wa} - COD: ${s.cod?'Aktif':'Nonaktif'}</div>`});} const ol=document.getElementById('adminOrderList'); if(ol){ol.innerHTML=""; orders.slice().reverse().forEach((o,idx)=>{const realIdx=orders.findIndex(x=>x.resi===o.resi); ol.innerHTML+=`<div class="border p-2 rounded mt-1 text-sm"><b>${o.resi}</b> - ${o.status} - Total ${fmt(o.total)} - Komisi ${fmt(o.komisi)}<br><input id="resiIn${realIdx}" placeholder="Input Resi Kurir J&T/JNE/SiCepat" value="${o.resiKurir!=='-'?o.resiKurir:''}"><div class="flex gap-1"><button class="btn !bg-blue-500 !p-2 text-xs" onclick="setStatus(${realIdx},'Dikirim')">🚚 Dikirim</button><button class="btn !bg-green-500 !p-2 text-xs" onclick="setStatus(${realIdx},'Selesai')">✅ Selesai</button><button class="btn !bg-red-500 !p-2 text-xs" onclick="setStatus(${realIdx},'Dikembalikan')">↩️ Retur</button></div></div>`});}}
+window.setStatus=(i,s)=>{const inp=document.getElementById('resiIn'+i); if(inp&&inp.value) orders[i].resiKurir=inp.value; orders[i].status=s; if(s==='Dikembalikan') gagalCOD++; document.getElementById('codStatus').innerText=gagalCOD>=2?"DIKUNCI 60 HARI - Gagal 2x":`Aktif - ${gagalCOD}x Gagal`; save(); renderAdmin(); renderOrders();};
+window.kirimWA=()=>{window.open("https://wa.me/"+WA_ADMIN+"?text="+encodeURIComponent("Halo Admin VTC! Minta OTP WA. No saya: "+document.getElementById('phone').value),"_blank");};
+window.loginBio=()=>{document.getElementById('status').innerText="Gunakan Face ID / Fingerprint di HP kamu.";};
+window.loginGoogle=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider());}catch(e){document.getElementById('status').innerText=e.message;}};
+window.loginEmail=async()=>{const e=document.getElementById('email').value,p=document.getElementById('pass').value; try{await signInWithEmailAndPassword(auth,e,p);}catch{try{await createUserWithEmailAndPassword(auth,e,p);}catch(er){document.getElementById('status').innerText=er.message;}}};
+window.kirimOTP=async()=>{let ph=document.getElementById('phone').value.trim(); if(!ph.startsWith('+')) ph='+62'+ph.replace(/^0/,''); document.getElementById('status').innerText="Mengirim OTP ke "+ph+"..."; try{if(!window.rv) window.rv=new RecaptchaVerifier(auth,'recaptcha',{size:'invisible'}); conf=await signInWithPhoneNumber(auth,ph,window.rv); document.getElementById('status').innerText="OTP terkirim ke "+ph;}catch(e){document.getElementById('status').innerText=e.message;}};
+window.verifOTP=async()=>{if(!conf){document.getElementById('status').innerText="Klik Kirim OTP dulu!";return;} try{await conf.confirm(document.getElementById('otp').value.trim());}catch(e){document.getElementById('status').innerText="OTP Salah: "+e.message;}};
+window.logout=()=>signOut(auth);
+onAuthStateChanged(auth,(u)=>{if(u){document.getElementById('loginBox').style.display='none';document.getElementById('main').style.display='block';document.getElementById('userInfo').innerText="Halo, "+(u.phoneNumber||u.email||u.displayName);}else{document.getElementById('loginBox').style.display='block';document.getElementById('main').style.display='none';}});
+let sisa=7200; setInterval(()=>{sisa--; if(sisa<0)sisa=7200; let h=String(Math.floor(sisa/3600)).padStart(2,'0'),m=String(Math.floor(sisa%3600/60)).padStart(2,'0'),s=String(sisa%60).padStart(2,'0'); document.getElementById('timer').innerText=`${h}:${m}:${s}`;},1000);
+render(); renderOrders(); renderAdmin(); renderToko(); renderMy();
+</script></body></html>
